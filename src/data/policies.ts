@@ -94,6 +94,31 @@ export const policyComparison: PolicyComparison = {
       period: '2025.10.20 ~ 2026.12.31',
     },
   },
+  debtManagement: {
+    totalControl: {
+      policy0627: [
+        '금융권 자체대출: 25.7월부터 당초계획 대비 50% 감축',
+        '정책대출(디딤돌, 버팀목 등): 연간 공급계획 대비 25% 감축'
+      ],
+      policy1015: '명시적 총량관리 조치 없음 (LTV, 한도 제한 등으로 수요 관리)'
+    },
+    loanLimit: {
+      policy0627: '수도권·규제지역 6억원',
+      policy1015: [
+        { priceRange: '시가 15억원 이하', limit: '6억원' },
+        { priceRange: '시가 15억원 초과 ~ 25억원 이하', limit: '4억원' },
+        { priceRange: '시가 25억원 초과', limit: '2억원' }
+      ]
+    },
+    stressRate: {
+      policy0627: '명시적 조치 없음',
+      policy1015: '수도권·규제지역 내 주담대 스트레스 금리 1.5% → 3.0% 상향'
+    },
+    dsrJeonse: {
+      policy0627: '기존 DSR 규제 유지',
+      policy1015: '1주택자가 수도권·규제지역에서 전세대출 받는 경우 이자상환분 DSR 반영'
+    }
+  }
 };
 
 export const getPolicyById = (id: string): Policy | undefined => {

@@ -15,6 +15,16 @@ export interface Policy {
   icon: string;
 }
 
+export interface ComparisonItem {
+  policy0627?: string | string[];
+  policy1015: string | string[];
+}
+
+export interface LoanLimitByPrice {
+  priceRange: string;
+  limit: string;
+}
+
 export interface PolicyComparison {
   specZones: {
     '0627': string[];
@@ -27,6 +37,15 @@ export interface PolicyComparison {
       targets: string;
       period: string;
     };
+  };
+  debtManagement: {
+    totalControl: ComparisonItem;
+    loanLimit: {
+      policy0627: string;
+      policy1015: LoanLimitByPrice[];
+    };
+    stressRate: ComparisonItem;
+    dsrJeonse: ComparisonItem;
   };
 }
 

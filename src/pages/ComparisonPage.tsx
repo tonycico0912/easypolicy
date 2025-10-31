@@ -178,6 +178,169 @@ export default function ComparisonPage() {
           </div>
         </div>
 
+        {/* 가계부채 관리방안 */}
+        <div className="bg-white rounded-lg shadow-md p-8 mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <span className="mr-2">💰</span>
+            가계부채 관리방안
+          </h2>
+
+          {/* 가계대출 총량관리 */}
+          <div className="mb-8">
+            <h3 className="font-bold text-lg text-gray-900 mb-4">
+              가계대출 총량관리 강화
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  6.27 대책
+                </h4>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <ul className="space-y-2">
+                    {(policyComparison.debtManagement.totalControl.policy0627 as string[]).map((item, index) => (
+                      <li key={index} className="text-gray-700 text-sm flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  10.15 대책
+                </h4>
+                <div className="bg-blue-50 rounded-lg p-4">
+                  <p className="text-gray-700 text-sm">
+                    {policyComparison.debtManagement.totalControl.policy1015 as string}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 주담대 한도 제한 */}
+          <div className="mb-8">
+            <h3 className="font-bold text-lg text-gray-900 mb-4">
+              주택담보대출 여신한도 제한
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  6.27 대책
+                </h4>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <p className="text-gray-700 font-medium">
+                    {policyComparison.debtManagement.loanLimit.policy0627}
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  10.15 대책 - 주택가격별 차등 적용
+                </h4>
+                <div className="bg-red-50 rounded-lg p-4">
+                  <table className="w-full">
+                    <thead>
+                      <tr className="border-b border-red-200">
+                        <th className="py-2 px-3 text-left text-sm font-semibold text-gray-900">주택가격</th>
+                        <th className="py-2 px-3 text-right text-sm font-semibold text-gray-900">한도</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {policyComparison.debtManagement.loanLimit.policy1015.map((item, index) => (
+                        <tr key={index} className="border-b border-red-100">
+                          <td className="py-2 px-3 text-sm text-gray-700">{item.priceRange}</td>
+                          <td className="py-2 px-3 text-sm text-gray-900 font-bold text-right">{item.limit}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 스트레스 금리 */}
+          <div className="mb-8">
+            <h3 className="font-bold text-lg text-gray-900 mb-4">
+              스트레스 금리 조정
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  6.27 대책
+                </h4>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <p className="text-gray-700 text-sm">
+                    {policyComparison.debtManagement.stressRate.policy0627 as string}
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  10.15 대책
+                </h4>
+                <div className="bg-red-50 rounded-lg p-4">
+                  <p className="text-gray-700 text-sm font-semibold">
+                    {policyComparison.debtManagement.stressRate.policy1015 as string}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* DSR - 전세대출 */}
+          <div>
+            <h3 className="font-bold text-lg text-gray-900 mb-4">
+              DSR 규제 강화
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  6.27 대책
+                </h4>
+                <div className="bg-gray-50 rounded-lg p-4">
+                  <p className="text-gray-700 text-sm">
+                    {policyComparison.debtManagement.dsrJeonse.policy0627 as string}
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
+                  <span className="mr-2">📌</span>
+                  10.15 대책
+                </h4>
+                <div className="bg-red-50 rounded-lg p-4">
+                  <p className="text-gray-700 text-sm font-semibold">
+                    {policyComparison.debtManagement.dsrJeonse.policy1015 as string}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+            <div className="flex items-start space-x-2">
+              <span className="text-xl">⚠️</span>
+              <div className="text-sm text-gray-700">
+                <span className="font-semibold">주요 변화:</span> 6.27 대책은 총량관리 중심, 10.15 대책은 고가주택 대출 제한 및 금리 규제 강화
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* 출처 표시 */}
         <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
           <div className="flex items-start space-x-3">
